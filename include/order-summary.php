@@ -71,15 +71,15 @@ class Summary extends ReportFunction{
 		?>
 	   <div class="wrap">
         <div class="order-summary">
-        	<div class="summary-title">Order Summary</div>
+        	<div class="summary-title">Sales Summary</div>
             <div class="box">
-            	<div class="circle">Total Sales  <br /><br /> <span> <?php  echo $this->get_sales() .$this->get_currency() ; ?>  </span></div>
+            	<div class="circle">Total Sales  <br /><br /> <span> <?php  echo woocommerce_price( $this->get_sales())  ; ?>  </span></div>
             </div>
             <div class="box">
             	<div class="circle">Total Order  <br /> <br /> <span> # <?php  echo $this->get_sales_count();?>  </span></div>
             </div>
             <div class="box">
-            	<div class="circle">Today Sales<br /><br /><span><?php echo $this->get_sales(date("Y-m-d"),date("Y-m-d")).$this->get_currency() ; ?> </span> </div>
+            	<div class="circle">Today Sales<br /><br /><span><?php echo  woocommerce_price(  $this->get_sales(date("Y-m-d"),date("Y-m-d"))); ?> </span> </div>
            </div>
            <div class="box">
             	<div class="circle">Today Order  <br /> <br /><span># <?php echo $this->get_sales_count(date("Y-m-d"),date("Y-m-d"))?> </span></div>

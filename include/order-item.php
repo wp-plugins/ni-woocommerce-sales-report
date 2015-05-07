@@ -49,7 +49,8 @@ class OrderItem extends ReportFunction{
 	function display_order_item()
 	{  
 		$item_total = 0;
-		$tax_total = 0;
+		$tax_total  = 0;
+		$qty		=0;
 		$order_item=$this->get_order_item();
 		//$this->print_data($order_item);
 		if(count($order_item)> 0){
@@ -64,18 +65,18 @@ class OrderItem extends ReportFunction{
                     <th>Billing Country</th> 
                     <th>Order Currency</th> 
                     <th>Payment Method Title</th> 
-                    <th>Item Name</th>
+                    <th>Product Name</th>
                     <th>Qty.</th> 
                     <th>Price.</th> 
-                    <th>Line Total</th> 
                     <th>Line Tax</th> 
-                     
+                    <th>Line Total</th>   
                 </tr>
             
 			<?php
 			foreach($order_item as $k => $v){
 			$item_total += $v->line_total;
-			$tax_total += $v->line_tax;
+			$tax_total 	+= $v->line_tax;
+			$qty 		+= $v->qty;
 			?>
 				<tr>
                 	<td> <?php echo $v->order_id;?> </td>
@@ -87,20 +88,24 @@ class OrderItem extends ReportFunction{
                     <td> <?php echo $v->payment_method_title;?> </td>
                     <td> <?php echo $v->order_item_name;?> </td>
                    	<td style="text-align:right"> <?php echo $v->qty;?> </td>
-                     	<td style="text-align:right"> <?php echo $v->line_total/$v->qty;?> </td>
-                    <td style="text-align:right"> <?php echo $v->line_total;?> </td>
-                    <td style="text-align:right"> <?php echo $v->line_tax;?> </td>
+                    <td style="text-align:right"> <?php echo  woocommerce_price($v->line_total/$v->qty);?> </td>
+                    <td style="text-align:right"> <?php echo  woocommerce_price($v->line_tax);?> </td>
+                    <td style="text-align:right"> <?php echo  woocommerce_price($v->line_total);?> </td>
+                    
                  
                 </tr>	
 			<?php
 			}
 			?>
-            	<tr>
+            	<!--<tr>
                 	<td colspan="10" style="text-align:right;">Total</td>
                 	<td  style="text-align:right"><?php echo $item_total ?></td>
                     <td  style="text-align:right"><?php echo $tax_total; ?></td>
-                </tr>
+                </tr>-->
             </table>
+           
+            	<div style="text-align:right; padding-top:10px; font-weight:bold"> Qty Total: <?php echo $qty ?> | Tax Total:  <?php echo woocommerce_price( $tax_total) ?> | Product Total: <?php echo woocommerce_price($item_total) ?> </div>
+            
             </div>
            <?php
 		}

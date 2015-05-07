@@ -2,8 +2,8 @@
 Contributors: Anzar Ahmed
 Tags: woocommerce, wordpress woocommerce, woocommerce report, sale report,product report, item report, woocommerce sales, today sales, Customer sales, country sales, item sales, sales report plugin, sales report cart, daily sales, weekly sales, monthly sales, yearly sales  
 Requires at least: 4.1.1
-Tested up to: 4.1.1
-Stable tag: 1.0.1
+Tested up to: 4.2.2
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ Some Features.
 * Today Total 
 * Today Customer
 * Sales order list
-* Filter by date
+* Filter by date, Today Date, Yesterday Date,  Last 7 days, Last 30 days, This year
 
 
 
@@ -50,8 +50,20 @@ Yes, as per requirement we can customize this plugin.
 
 == Changelog ==
 
-1.0 - Initial relese
+= version 1.1 =
+* Fixed: Woocommerce Price Format
+* Added: Total Quantity
+* Added: Total Tax 
+* Added: Total Product 
+* Tested: Compatible With WordPress 4.2.2
+
+= version 1.0 =
+* Initial relese
 
 == Upgrade Notice ==
 
 New Features add upgrade please.
+
+== Disclaimer ==
+
+It is not responsible for any harm or wrong doing this Plugin may cause. Users are fully responsible for their own use. This Plugin is to be used WITHOUT warranty.

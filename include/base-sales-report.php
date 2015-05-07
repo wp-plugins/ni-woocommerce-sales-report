@@ -41,8 +41,8 @@ class BaseSalesReport extends ReportFunction{
    		add_menu_page('Sales Report','Sales Report','manage_options','parent-menu',array(&$this,'AddMenuPage')
 		,plugins_url( '../images/icon.png', __FILE__ )
 		,6);
-    	add_submenu_page('parent-menu', 'Summary', 'Summary', 'manage_options', 'parent-menu' , array(&$this,'AddMenuPage'));
-    	add_submenu_page('parent-menu', 'Order Item', 'Order Item', 'manage_options', 'order-item' , array(&$this,'AddMenuPage'));
+    	add_submenu_page('parent-menu', 'Summary', 'Sales Summary', 'manage_options', 'parent-menu' , array(&$this,'AddMenuPage'));
+    	add_submenu_page('parent-menu', 'Order Product', 'Order Product', 'manage_options', 'order-item' , array(&$this,'AddMenuPage'));
 	}
 	function AddMenuPage()
 	{
