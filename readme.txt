@@ -3,7 +3,7 @@ Contributors: Anzar Ahmed
 Tags: woocommerce, wordpress woocommerce, woocommerce report, sale report,product report, item report, woocommerce sales, today sales, Customer sales, country sales, item sales, sales report plugin, sales report cart, daily sales, weekly sales, monthly sales, yearly sales  
 Requires at least: 4.1.1
 Tested up to: 4.2.2
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,8 @@ Yes, as per requirement we can customize this plugin.
 
 
 == Changelog ==
+= version 1.2 =
+* Added: Order Status
 
 = version 1.1 =
 * Fixed: Woocommerce Price Format

@@ -65,6 +65,7 @@ class OrderItem extends ReportFunction{
                     <th>Billing Country</th> 
                     <th>Order Currency</th> 
                     <th>Payment Method Title</th> 
+                    <th>Order Status</th>
                     <th>Product Name</th>
                     <th>Qty.</th> 
                     <th>Price.</th> 
@@ -86,6 +87,7 @@ class OrderItem extends ReportFunction{
                     <td> <?php echo $this->get_country_name($v->billing_country);?> </td>
                     <td> <?php echo $v->order_currency;?> </td>
                     <td> <?php echo $v->payment_method_title;?> </td>
+                    <td> <?php echo ucfirst ( str_replace("wc-","", $v->order_status));?> </td>
                     <td> <?php echo $v->order_item_name;?> </td>
                    	<td style="text-align:right"> <?php echo $v->qty;?> </td>
                     <td style="text-align:right"> <?php echo  woocommerce_price($v->line_total/$v->qty);?> </td>
@@ -147,6 +149,7 @@ class OrderItem extends ReportFunction{
 		
 		$query = "SELECT
 				posts.ID as order_id
+				,posts.post_status as order_status
 				,woocommerce_order_items.order_item_id as order_item_id
 				, date_format( posts.post_date, '%Y-%m-%d') as order_date 
 				,woocommerce_order_items.order_item_name
