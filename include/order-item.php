@@ -29,6 +29,7 @@ class OrderItem extends ReportFunction{
                       <option value="today">Today</option>
                       <option value="yesterday">Yesterday</option>
                       <option value="last_7_days">Last 7 days</option>
+                      <option value="last_10_days">Last 10 days</option>
                       <option value="last_30_days">Last 30 days</option>
                       <option value="this_year">This year</option>
                     </select>
@@ -46,8 +47,9 @@ class OrderItem extends ReportFunction{
 		<div class="ajax_content"></div>
 		<?php	
 	}
-	function display_order_item()
+	function display_order_item($content="DEFAULT")
 	{  
+		//echo $content;
 		$item_total = 0;
 		$tax_total  = 0;
 		$qty		=0;
@@ -55,16 +57,24 @@ class OrderItem extends ReportFunction{
 		//$this->print_data($order_item);
 		if(count($order_item)> 0){
 			?>
+            <?php if ($content=="DEFAULT"): ?>
+            <div style="text-align:right;margin-bottom:10px">
+            <form id="ni_frm_sales_order" action="" method="post">
+                <input type="submit" value="Print" class="print_hide" name="btn_print" id="btn_print" />
+                <input type="hidden" name="select_order" value="<?php echo $this->get_request("select_order");  ?>" />
+            </form>
+            </div>
+            <?php endif; ?>
             <div class="data-table">
 			<table >
             	<tr>
                 	<th>#ID</th>
-                    <th>Order Date</th>
+                    <th style="width:8%">Order Date</th>
                     <th>Billing First Name</th> 
                     <th>Billing Email</th> 
-                    <th>Billing Country</th> 
-                    <th>Order Currency</th> 
-                    <th>Payment Method Title</th> 
+                    <th>Country</th> 
+                    <th>Currency</th> 
+                    <th>Payment Method</th> 
                     <th>Order Status</th>
                     <th>Product Name</th>
                     <th>Qty.</th> 
@@ -173,6 +183,9 @@ class OrderItem extends ReportFunction{
 					case "last_7_days":
 						$query .= " AND  date_format( posts.post_date, '%Y-%m-%d') BETWEEN date_format(DATE_SUB(CURDATE(), INTERVAL 7 DAY), '%Y-%m-%d') AND   '{$today}' ";
 						break;
+					case "last_10_days":
+						$query .= " AND  date_format( posts.post_date, '%Y-%m-%d') BETWEEN date_format(DATE_SUB(CURDATE(), INTERVAL 10 DAY), '%Y-%m-%d') AND   '{$today}' ";
+						break;	
 					case "last_30_days":
 							$query .= " AND  date_format( posts.post_date, '%Y-%m-%d') BETWEEN date_format(DATE_SUB(CURDATE(), INTERVAL 30 DAY), '%Y-%m-%d') AND   '{$today}' ";
 						break;	
@@ -215,6 +228,27 @@ class OrderItem extends ReportFunction{
 			$order_detail_array[$k] =$v[0];
 		}
 		return 	$order_detail_array;
+	}
+	function get_print_content(){
+	?>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Print</title>
+		<link rel='stylesheet' id='sales-report-style-css'  href='<?php echo  plugins_url( '../assets/css/sales-report-style.css', __FILE__ ); ?>' type='text/css' media='all' />
+		</head>
+		
+		<body>
+			<?php 
+				 $this->display_order_item("PRINT");
+			?>
+		  <div class="print_hide" style="text-align:right; margin-top:15px"><input type="button" value="Back" onClick="window.history.go(-1)"> <input type="button" value="Print this page" onClick="window.print()">	</div>
+		 
+		</body>
+		</html>
+
+	<?php
 	}
 }
 ?>

@@ -15,7 +15,9 @@ jQuery(function($){
     });
 
 	$( "#frmOrderItem" ).submit(function( event ) {
+		//alert("das");
 		//alert(ajax_object.ajaxurl);
+	    //alert("c");
 		// data: "{asd:'" + das"'}",
 		//alert($("#select_order").val());
 		//alert($("#frmOrderItem").serialize());
@@ -25,7 +27,7 @@ jQuery(function($){
 			//data:$("#frmOrderItem").serialize(),
 			//data: "{action:'my_action',sub_action:'order_item',select_order:'"+ $("#select_order").val() +"'}",
 			data: {
-            'action':'my_action',
+            'action':'sales_order',
 			'ajax_function':'order_item',
             'select_order' : $("#select_order").val(),
 			'page' : 'order-item'
@@ -33,7 +35,7 @@ jQuery(function($){
 			success:function(data) {
 				// This outputs the result of the ajax request
 				//console.log(data);
-				
+				//alert(data);
 				$(".ajax_content").html(data);
 			},
 			error: function(errorThrown){

@@ -1,9 +1,9 @@
 === Ni Woocommerce Sales Report ===
 Contributors: Anzar Ahmed
-Tags: woocommerce, wordpress woocommerce, woocommerce report, sale report,product report, item report, woocommerce sales, today sales, Customer sales, country sales, item sales, sales report plugin, sales report cart, daily sales, weekly sales, monthly sales, yearly sales  
+Tags: woocommerce, wordpress woocommerce,print sales report, woocommerce report, sale report,product report, item report, woocommerce sales, today sales, Customer sales, country sales, item sales, sales report plugin, sales report cart, daily sales, weekly sales, monthly sales, yearly sales,print sales product, print sales order 
 Requires at least: 4.1.1
-Tested up to: 4.2.2
-Stable tag: 1.2
+Tested up to: 4.3.1
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,7 @@ Some Features.
 * Today Customer
 * Sales order list
 * Filter by date, Today Date, Yesterday Date,  Last 7 days, Last 30 days, This year
+* Print sales order report
 
 
 
@@ -46,9 +47,24 @@ Yes, as per requirement we can customize this plugin.
 
 1. Summary Report.
 2. Sales Order List.
-
+3. Print option page.
 
 == Changelog ==
+
+= version 1.4 - 18-October-2015 =
+
+* Added:  Print sales order product
+* Added:  Sales summary (Qty, Tax and Product Total) at the bottom of the sales list
+* Change: Plugin menu icon 
+* Tested: Compatible With WordPress 4.3.1
+* Tested: Compatible With Woocommerce 2.4.7
+
+= version 1.3 - 22-Aug-2015 =
+
+* Added: Last 10 days order filter  
+* Tested: Compatible With WordPress 4.3
+* Tested: Compatible With Woocommerce 2.4.5
+
 = version 1.2 =
 * Added: Order Status
 
