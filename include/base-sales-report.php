@@ -7,7 +7,7 @@ class BaseSalesReport extends ReportFunction{
 	 
 	 //$this->print_data( $_REQUEST["page"] );
 	 	
-		$page =  isset($_REQUEST["page"]) ;
+		 $page =  	$this->get_request("page");
 		
 		add_action( 'admin_menu',  array(&$this,'register_my_custom_menu_page' ));
 		if ($page =="order-product" || $page =="sales-report")
