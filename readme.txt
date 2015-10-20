@@ -3,7 +3,7 @@ Contributors: Anzar Ahmed
 Tags: woocommerce, wordpress woocommerce,print sales report, woocommerce report, sale report,product report, item report, woocommerce sales, today sales, Customer sales, country sales, item sales, sales report plugin, sales report cart, daily sales, weekly sales, monthly sales, yearly sales,print sales product, print sales order 
 Requires at least: 4.1.1
 Tested up to: 4.3.1
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Yes, as per requirement we can customize this plugin.
 3. Print option page.
 
 == Changelog ==
+
+= version 1.5 - 20-October-2015 =
+BugFix: Internal bugFix
 
 = version 1.4 - 18-October-2015 =
 

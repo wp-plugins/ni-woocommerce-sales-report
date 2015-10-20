@@ -7,11 +7,16 @@ class BaseSalesReport extends ReportFunction{
 	 
 	 //$this->print_data( $_REQUEST["page"] );
 	 	
-		 $page =  	$this->get_request("page");
+		
 		
 		add_action( 'admin_menu',  array(&$this,'register_my_custom_menu_page' ));
-		if ($page =="order-product" || $page =="sales-report")
-		add_action( 'admin_enqueue_scripts',  array(&$this,'my_enqueue' ));
+		
+		if (isset($_REQUEST["page"])){
+			 $page =  	$this->get_request("page");
+			if ($page =="order-product" || $page =="sales-report")
+		
+			add_action( 'admin_enqueue_scripts',  array(&$this,'my_enqueue' ));
+		}
 		add_action( 'wp_ajax_sales_order',  array(&$this,'ajax_sales_order' )); /*used in form field name="action" value="my_action"*/
 		add_action('admin_init', array( &$this, 'admin_init' ) );
     }
